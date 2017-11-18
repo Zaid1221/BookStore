@@ -28,11 +28,10 @@ public class DataBaseManager extends SQLiteOpenHelper
 
     public void onCreate(SQLiteDatabase db)
     {
-        String sqlCreate = "create table " + TABLE_BOOK + "("
-            + ID + " integer primary key autoincrement,"
-            + TITLE + " text,"
-            + ISBN + " integer,"
-            + PRICE + " real)";
+        String sqlCreate = "create table " + TABLE_BOOK + "( " + ID;
+        sqlCreate += " integer primary key autoincrement, " + TITLE;
+        sqlCreate += " text, " + ISBN;
+        sqlCreate += " integer, " + PRICE + " real )" ;
 
         db.execSQL(sqlCreate);
 
@@ -48,15 +47,14 @@ public class DataBaseManager extends SQLiteOpenHelper
 
     public void insert(Book book)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase( );
         String sqlInsert = "insert into " + TABLE_BOOK;
-        sqlInsert+=  "values(null, ";
-        sqlInsert+= "'" + book.getTitle() + "',";
-        sqlInsert+= "'" + book.getISBN() + "',";
-        sqlInsert+= "'" + book.getPrice() + "')";
+        sqlInsert += " values( null, '" + book.getTitle();
+        sqlInsert += "', '" + book.getISBN();
+        sqlInsert += "', '" + book.getPrice() + "' )";
 
-        db.execSQL(sqlInsert);
-        db.close();
+        db.execSQL( sqlInsert );
+        db.close( );
 
         Log.d("Poop", "Inserted data");
     }

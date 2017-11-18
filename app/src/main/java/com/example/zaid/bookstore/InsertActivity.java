@@ -8,12 +8,7 @@ import android.widget.Toast;
 
 public class InsertActivity extends AppCompatActivity
 {
-    EditText textTitle;
-    EditText textISBN;
-    EditText textPrice;
-
     private DataBaseManager db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,9 +20,9 @@ public class InsertActivity extends AppCompatActivity
 
     public void insert(View v)
     {
-        textTitle = (EditText) findViewById(R.id.value_title);
-        textISBN = (EditText) findViewById(R.id.value_isbn);
-        textPrice = (EditText) findViewById(R.id.value_price);
+        EditText textTitle = (EditText) findViewById(R.id.value_title);
+        EditText textISBN = (EditText) findViewById(R.id.value_isbn);
+        EditText textPrice = (EditText) findViewById(R.id.value_price);
 
         String title = textTitle.getText().toString();
         String ISBNString = textISBN.getText().toString();
