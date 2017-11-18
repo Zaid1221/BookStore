@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.zaid.bookstore.InsertActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_title"
+        android:text="Title"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_toRightOf="@id/label_title"
+        android:layout_alignTop="@id/label_title"
+        android:layout_marginLeft="100dp"
+        android:id="@+id/value_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_ISBN"
+        android:text="ISBN #"
+        android:layout_below="@id/label_title"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_toRightOf="@id/label_ISBN"
+        android:layout_alignLeft="@id/value_title"
+        android:layout_alignTop="@id/label_ISBN"
+        android:inputType="number"
+        android:id="@+id/value_isbn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_price"
+        android:text="Price"
+        android:layout_below="@id/label_ISBN"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_toRightOf="@id/label_price"
+        android:layout_alignLeft="@id/value_isbn"
+        android:layout_alignTop="@id/label_price"
+        android:inputType="numberDecimal"
+        android:id="@+id/value_price" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/label_price"
+        android:layout_marginBottom="52dp"
+        android:layout_marginStart="23dp"
+        android:text="Back"
+        android:onClick="goBack"/>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_marginEnd="46dp"
+        android:layout_alignBaseline="@+id/back"
+        android:layout_alignBottom="@+id/back"
+        android:layout_alignParentEnd="true"
+        android:onClick="insert"/>
+
+
+</RelativeLayout>
