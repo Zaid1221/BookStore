@@ -29,22 +29,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
         switch(id)
         {
+            case R.id.action_add:
+            {
+                Intent insertIntent = new Intent(this, InsertActivity.class);
+                this.startActivity(insertIntent);
+                return true;
+            }
 
+            case R.id.action_remove: {
+                Intent removeIntent = new Intent(this, RemoveActivity.class);
+                this.startActivity(removeIntent);
+                return true;
+            }
+
+            case R.id.action_update:
+            {
+                Intent updateIntent = new Intent(this, UpdateActivity.class);
+                this.startActivity(updateIntent);
+                return true;
+            }
+
+            default:
+            {
+                return super.onOptionsItemSelected(item);
+            }
         }
-        case(R.id.action_add)
-        {
-            Intent insertIntent = new Intent(this, InsertActivity.class);
-            this.startActivity(insertIntent);
-            return true;
-        }
 
-
-
-        return super.onOptionsItemSelected(item);
     }
 }

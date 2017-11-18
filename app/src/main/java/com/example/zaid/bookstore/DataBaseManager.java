@@ -1,9 +1,13 @@
 package com.example.zaid.bookstore;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by Zaid on 11/17/2017.
@@ -58,5 +62,35 @@ public class DataBaseManager extends SQLiteOpenHelper
 
         Log.d("Poop", "Inserted data");
     }
+
+    public void remove(int id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase( );
+        String sqlDelete= "delete from " + TABLE_BOOK;
+        sqlDelete+= " where " +ID + " = " + id;
+        db.execSQL(sqlDelete);
+        db.close( );
+    }
+
+    public ArrayList<Book> selectAll()
+    {
+        String sqlSelect= "select * from " +TABLE_BOOK;
+        SQLiteDatabase db = this.getWritableDatabase( );
+        Cursor cursor = db.rawQuery(sqlSelect,null);
+        ArrayList<Book> books = new ArrayList<>();
+
+        while(cursor.moveToNext())
+        {
+            Book current = new Book(
+                    Integer.parseInt(cursor.getString(0)),
+                    cursor.getString( 1 ),
+                    cursor.getInt( 2 ), cursor.getDouble( 3 ) );
+            books.add(current);
+        }
+        db.close();
+        return books;
+    }
+
+
 }
 
