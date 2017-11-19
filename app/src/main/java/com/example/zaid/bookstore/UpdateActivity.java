@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,7 +80,6 @@ public class UpdateActivity extends AppCompatActivity {
                 //set up event handeling
                 buttons[i].setOnClickListener(bh);
 
-
                 //add elements to grid
                 grid.addView(ids[i], width / 10,
                         ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -123,6 +124,8 @@ public class UpdateActivity extends AppCompatActivity {
             } catch (NumberFormatException nfe) {
                 Toast.makeText(UpdateActivity.this, "Price error", Toast.LENGTH_LONG).show();
             }
+
+            UpdateActivity.this.finish();
         }
     }
 }
