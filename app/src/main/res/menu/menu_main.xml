@@ -13,4 +13,10 @@
         android:title="Remove"
         android:icon="@android:drawable/ic_menu_delete"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_update"
+        android:title="Update"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="never" />
 </menu>
