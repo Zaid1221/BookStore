@@ -36,7 +36,7 @@ public class UpdateActivity extends AppCompatActivity {
             ScrollView scrollView = new ScrollView(this);
             GridLayout grid = new GridLayout(this);
             grid.setRowCount(books.size());
-            grid.setColumnCount(4);
+            grid.setColumnCount(5);
 
             //create array of elements
             TextView[] ids = new TextView[books.size()];
@@ -63,10 +63,8 @@ public class UpdateActivity extends AppCompatActivity {
                 tip[i][2] = new EditText(this); // price
 
                 tip[i][0].setText(book.getTitle());
-                tip[i][1].setText(book.getISBN());
+                tip[i][1].setText( "" + book.getISBN());
                 tip[i][2].setText("" + book.getPrice());
-
-                tip[i][2].setInputType(InputType.TYPE_CLASS_NUMBER);
 
                 tip[i][0].setId(10 * book.getID());
                 tip[i][1].setId(10 * book.getID() + 1);
@@ -80,16 +78,17 @@ public class UpdateActivity extends AppCompatActivity {
                 //set up event handeling
                 buttons[i].setOnClickListener(bh);
 
+
                 //add elements to grid
                 grid.addView(ids[i], width / 10,
                         ViewGroup.LayoutParams.WRAP_CONTENT);
                 grid.addView(tip[i][0], (int) (width * .4),
                         ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(tip[i][1], (int) (width * .15),
+                grid.addView(tip[i][1], (int) (width * .10),
                         ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(tip[i][2], (int) (width * .35),
+                grid.addView(tip[i][2], (int) (width * .15),
                         ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(buttons[i], (int) (width * .55),
+                grid.addView(buttons[i], (int) (width * .25),
                         ViewGroup.LayoutParams.WRAP_CONTENT);
 
                 i++;

@@ -94,11 +94,11 @@ public class DataBaseManager extends SQLiteOpenHelper
     public void update(int id, String title, int isbn, double price)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        String sqlUpdate= " update" + TABLE_BOOK;
-        sqlUpdate += " set " + TITLE + " = '" + title + "',";
-        sqlUpdate +=  ISBN + " = '" + isbn + "',";
-        sqlUpdate +=  PRICE + " = '" + price + "',";
-        sqlUpdate+= " where" + ID + " = " +id;
+        String sqlUpdate= "update " + TABLE_BOOK;
+        sqlUpdate += " set " + TITLE + " = '" + title + "', ";
+        sqlUpdate +=  ISBN + " = '" + isbn + "', ";
+        sqlUpdate +=  PRICE + " = '" + price + "'";
+        sqlUpdate+= " where " + ID + " = " +id;
         db.execSQL(sqlUpdate);
         db.close();
     }
